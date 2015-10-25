@@ -1,0 +1,78 @@
+Practical Machine Learning
+Assignment
+
+1. data preparation
+The first step was to look at the  training and test sets. It was noticed that not all the columns
+rows were in the test set. Therefore the two files were reduced to the fields in the test set.
+
+The time fields were removed and the fields were check to have the same lengths.
+
+2. data set
+The data sets contained 54 columns, including the persons name.
+
+3. initial experimentation
+As there were so many columns i looked to reduce the number using the PCA ( thrsh of 75%),
+Principle component analysis
+I then created a plot of the first two principle components. and they seemed to form clusters.
+This was encouraging especially as there were 5 clusters. However these clusters were not due to the 
+five possible A to E clasifications.
+It appeared that these were the more down to the different peoples methods.
+The training data set was divided between a training and test (validation set)with a split at 75%
+A knn method was used on the PCA components and the test and training sets compared via a Confusion matrix
+ 
+Confusion Matrix and Statistics
+
+          Reference
+Prediction    A    B    C    D    E
+         A 1309   15   27   14    2
+         B   32  840   42    8    7
+         C   14   23  775   21    5
+         D    5    0   52  725    4
+         E    9   10   12   11  840
+While the results were responsibly good- Accuracy : 0.9346 , it did produce some errors
+		 
+4. Prediction for each person
+It was then decided to try and build a model for each person
+
+Count of no	Column Labels						
+Row Labels	A		B		C		D		E		Grand Total
+adelmo		1165	776		750		515		686		3892
+carlitos	834		690		493		486		609		3112
+charles		899		745		539		642		711		3536
+eurico		865		592		489		582		542		3070
+jeremy		1177	489		652		522		562		3402
+pedro		640		505		499		469		497		2610
+						
+Grand Total	5580	3797	3422	3216	3607	19622
+There was enough data to build these individual predictions
+
+example -carlitos
+          Reference
+Prediction   A   B   C   D   E
+         A 200   0   1   4   0
+         B   4 150   8   5   1
+         C   0   2 119   0   0
+         D   0   2   3 114   0
+         E   0   2   1   1 145
+		 
+		 Accuracy : 0.9554 
+		 
+this increased the accuracy.
+
+5. testing the true test data set
+The model made was then used to predict for the 20 cases in the testing set.
+However the model for the person was used to answer the question only for that person.
+
+6. Outcome
+the model was very successful for most of the people. the only issue was for Jeremy.
+This was due to some variables not have any variation in them for that person.
+ this created an issue, so a model was made excluding the variable that has no variation
+ 
+7. Summary
+ A very simple approach was undertaken.
+Models were built in only a few seconds, and created a good accuracy.
+Random forest seemed to be an alternative but takes hours to run.
+
+ 
+ 
+ 
